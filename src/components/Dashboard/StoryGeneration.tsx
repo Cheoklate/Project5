@@ -10,7 +10,7 @@ import { Link, useNavigate } from 'react-router-dom';
 // dotenv.config();
 
 const configuration = new Configuration({
-	apiKey: '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',
+	apiKey: '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',
 });
 const openai = new OpenAIApi(configuration);
 

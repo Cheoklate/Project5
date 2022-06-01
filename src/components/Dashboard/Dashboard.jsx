@@ -23,6 +23,7 @@ import Button from '@mui/material/Button';
 import StoryGenerator from './StoryGeneration';
 import Chatroom from './SetNameChat';
 import Composition from './Composition';
+import Lobby from './Lobby';
 
 function Copyright(props) {
 	return (
@@ -168,6 +169,7 @@ function DashboardContent() {
 										height: 600,
 									}}
 								>
+									{selectedComponent === '2' && <Lobby />}
 									{selectedComponent === '' && <StoryGenerator />}
 									{selectedComponent === '1' && <Composition />}
 								</Paper>
