@@ -10,7 +10,7 @@ export default function Composition() {
 	const [socket, setSocket] = useState<any>();
 	const [quill, setQuill] = useState<any>();
 	const [skelly, setSkeleton] = useState<any>();
-const skeleton = sessionStorage.getItem('Content'!);
+
 	console.log('checkskelly', skelly);
 
 	if (socket != null) {
@@ -81,7 +81,7 @@ const skeleton = sessionStorage.getItem('Content'!);
 				scrollingContainer: ".scrollme"
 			};
 			const q = new Quill(editor, options);
-			
+			const skeleton = sessionStorage.getItem('Content'!)
 			console.log('skeleton2', skeleton);
 			if (skeleton != null) {
 				q.setText(skeleton.toString());
@@ -116,8 +116,6 @@ const skeleton = sessionStorage.getItem('Content'!);
 	};
 
 	return <div>
-	<h4>Title:{Title}</h4>
-	<h4>Genre:{Genre}</h4>
 	<div className='quillcontainer' ref={wrapperRef}></div>
 	<button className='btn' type='submit' onClick={saveToDB}>
 				Save
