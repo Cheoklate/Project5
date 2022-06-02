@@ -24,6 +24,7 @@ import StoryGenerator from './StoryGeneration';
 import Chatroom from './SetNameChat';
 import Composition from './Composition';
 import Lobby from './Lobby';
+import Carousel from './Carousel'
 
 function Copyright(props) {
 	return (
@@ -144,20 +145,20 @@ function DashboardContent() {
 				>
 					<Toolbar />
 					<Container maxWidth='lg' sx={{ mt: 4, mb: 4 }}>
-						{/* <ButtonGroup
-							onSelectChart={setSelectedChart}
+						<ButtonGroup
+							onSelectChart={setSelectedComponent}
 							variant='outlined'
 							aria-label='outlined button group'
 						>
-							<Button onClick={() => setSelectedChart('')}>
-								Net Liquidation
+							<Button onClick={() => setSelectedComponent('')}>
+								Story Generator
 							</Button>
-							<Button onClick={() => setSelectedChart('HypotheticalGrowth')}>
-								Hypothetical Growth
+							<Button onClick={() => setSelectedComponent('1')}>
+								Collaborate
 							</Button>
-							<Button onClick={() => setSelectedChart('TWR')}>TWR</Button>
-							<Button onClick={() => setSelectedChart('XIRR')}>XIRR</Button>
-						</ButtonGroup> */}
+							<Button onClick={() => setSelectedComponent('2')}>Carousel</Button>
+							{/* <Button onClick={() => setSelectedChart('XIRR')}>XIRR</Button> */}
+						</ButtonGroup>
 						<Grid container spacing={3}>
 							{/* Story Function */}
 							<Grid item xs={12} md={8} lg={9} id='chart-container'>
@@ -169,13 +170,13 @@ function DashboardContent() {
 										height: 600,
 									}}
 								>
-									{selectedComponent === '2' && <Lobby />}
 									{selectedComponent === '' && <StoryGenerator />}
 									{selectedComponent === '1' && <Composition />}
+									{selectedComponent === '2' && <Carousel />}
 								</Paper>
-								<Button onClick={() => setSelectedComponent('1')}>
+								{/* <Button onClick={() => setSelectedComponent('1')}>
 									Collaborate
-								</Button>
+								</Button> */}
 							</Grid>
 							{/* Chat function */}
 							<Grid item xs={12} md={4} lg={3}>

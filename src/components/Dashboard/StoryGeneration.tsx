@@ -13,11 +13,7 @@ import './Storygen.css' ;
 // dotenv.config();
 
 const configuration = new Configuration({
-<<<<<<< HEAD
-	apiKey: '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',
-=======
 	apiKey: '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',
->>>>>>> 9e286a88a8a7b005508ffe08419307003393e8ad
 });
 const openai = new OpenAIApi(configuration);
 
