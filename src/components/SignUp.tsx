@@ -208,7 +208,11 @@ export default function SignUp() {
 	}) => {
 		event.preventDefault();
 		const data = new FormData(event.currentTarget);
-		let signupDetails = { userName: userName, email: email, password: password };
+		let signupDetails = {
+			userName: userName,
+			email: email,
+			password: password,
+		};
 		axios
 			.post('http://localhost:3004/signup', signupDetails)
 			.then((res) => {
@@ -223,7 +227,7 @@ export default function SignUp() {
 				console.log('error', error);
 			});
 		console.log({
-      userName: data.get('userName'),
+			userName: data.get('userName'),
 			email: data.get('email'),
 			password: data.get('password'),
 		});

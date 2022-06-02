@@ -9,6 +9,8 @@ router.post('/login', UserController.login);
 router.post('/signup', UserController.signup);
 
 router.post('/save', StoryController.save)
+router.get('/renderLobby', StoryController.renderLobby)
+router.get("/renderLobby/:id", StoryController.renderLobby);
 router.post('/gethistory', StoryController.getHistory);
 
 export default router;
