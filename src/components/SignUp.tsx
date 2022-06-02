@@ -216,7 +216,7 @@ export default function SignUp() {
 		axios
 			.post('http://localhost:3004/signup', signupDetails)
 			.then((res) => {
-				let path = '/login';
+				let path = '/signin';
 				console.log('succesful signup');
 				console.log('data', res.data);
 				const { id, email } = res.data;
