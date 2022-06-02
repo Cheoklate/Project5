@@ -15,6 +15,7 @@ import Footer from './Footer.jsx';
 import React, { useEffect, useState } from 'react';
 // import post2 from './blog-post.2.md';
 import { InferProps, Validator } from 'prop-types';
+import Markdown from './Markdown.jsx';
 
 const sections: (InferProps<{ title: Validator<string>; url: Validator<string>; }> | null | undefined)[] = [
 	// { title: 'About us', url: '#' },
@@ -52,13 +53,13 @@ const featuredPosts = [
 	// 	imageLabel: 'Image Text',
 	// },
 ];
-const post1 = ``
+const post1 = `Looking to create amazing stories with the help of AI? Look no further than our new program! With our program, you'll be able to create stories with the help of an AI, and then collaborate and edit them with other users. Whether you're a seasoned writer or just getting started, our program is perfect for anyone who wants to create incredible stories. So what are you waiting for? Try our program today!`
 const posts = [post1];
 
 const sidebar = {
 	title: 'Instructions',
 	description:
-		'Create an account. Join a room, start typing!',
+		'Create an account. Join a room, start typing! You can browse older stories for inspiration with the Carousel fucntion too!',
 	archives: [
 		// { title: 'March 2022', url: '#' },
 		// { title: 'February 2022', url: '#' },
@@ -78,7 +79,7 @@ export default function Blog() {
 		<ThemeProvider theme={theme}>
 			<CssBaseline />
 			<Container maxWidth='lg'>
-				<Header title='Project5' sections={sections} />
+				<Header title='Shtory Time' sections={sections} />
 				<main>
 					{/* <MainFeaturedPost post={mainFeaturedPost} />
 					<Grid container spacing={4}>

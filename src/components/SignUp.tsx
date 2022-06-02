@@ -216,7 +216,7 @@ export default function SignUp() {
 		axios
 			.post('http://localhost:3004/signup', signupDetails)
 			.then((res) => {
-				let path = '/dashboard';
+				let path = '/login';
 				console.log('succesful signup');
 				console.log('data', res.data);
 				const { id, email } = res.data;
@@ -335,7 +335,9 @@ export default function SignUp() {
 						</Grid>
 					</Box>
 				</Box>
-				<Copyright sx={{ mt: 5 }} component={'symbol'} />
+				<Typography variant='body2' color='text.secondary' align='center'>
+					<Copyright sx={{ mt: 8, mb: 4 }} component={'symbol'} />
+				</Typography>
 			</Container>
 		</ThemeProvider>
 	);

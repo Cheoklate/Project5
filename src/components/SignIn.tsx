@@ -189,7 +189,7 @@ function Copyright(
 		>
 			{'Copyright © '}
 			<Link color='inherit' href='/'>
-				Main Page
+				Shtory Time
 			</Link>{' '}
 			{new Date().getFullYear()}
 			{'.'}
@@ -305,7 +305,9 @@ export default function SignIn() {
 						</Grid>
 					</Box>
 				</Box>
-				<Copyright sx={{ mt: 8, mb: 4 }} component={'symbol'} />
+				<Typography variant='body2' color='text.secondary' align='center'>
+					<Copyright sx={{ mt: 8, mb: 4 }} component={'symbol'} />
+				</Typography>
 			</Container>
 		</ThemeProvider>
 	);
