@@ -28,6 +28,16 @@ const StoryController = {
 	// 	try {
 	// 		const { id: _id } = req.params;
 	// 		const { title, content, genre } = req.params;
+	//   },
+	getHistory: async (req: Request, res: Response) => {
+		try {
+			const history = await Story.find({});
+			console.log(history);
+			return res.status(200).json(history);
+		} catch (err) {
+			return res.status(500).json({ message: 'Internal Server Error' });
+		}
+	},
 
 	// 		const Lobby = await Story.find();
 
@@ -38,23 +48,20 @@ const StoryController = {
 	// 	}
 	// },
 	renderLobby: async (req: Request, res: Response) => {
-        try {
-            const { id: _id } = req.params;
-            const noSelect = [
-                "-password",
-                "-email",
-            ];
-            if (_id) {
-                const story = await Story.findOne({ _id }, noSelect).exec();
-                return res.status(200).json(story);
-            } else {
-                const stories = await Story.find({}, noSelect).exec();
-                return res.status(200).json(stories);
-            }
-        } catch (err) {
-            return res.status(500).json({ message: "Internal Server Error" });
-        }
-    },
+		try {
+			const { id: _id } = req.params;
+			const noSelect = ['-password', '-email'];
+			if (_id) {
+				const story = await Story.findOne({ _id }, noSelect).exec();
+				return res.status(200).json(story);
+			} else {
+				const stories = await Story.find({}, noSelect).exec();
+				return res.status(200).json(stories);
+			}
+		} catch (err) {
+			return res.status(500).json({ message: 'Internal Server Error' });
+		}
+	},
 };
 
 export default StoryController;

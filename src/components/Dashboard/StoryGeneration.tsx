@@ -13,7 +13,11 @@ import './Storygen.css' ;
 // dotenv.config();
 
 const configuration = new Configuration({
+<<<<<<< HEAD
 	apiKey: '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',
+=======
+	apiKey: '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',
+>>>>>>> 9e286a88a8a7b005508ffe08419307003393e8ad
 });
 const openai = new OpenAIApi(configuration);
 
@@ -30,7 +34,10 @@ export default function StoryGenerator() {
 
 	const buttonHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
 		event.preventDefault();
+
 		const submitPrompt = async () => {
+			 const loader = document.getElementById('loader-container');
+    				loader!.style.display = 'flex';
 			const response: any = await openai.createCompletion('text-davinci-002', {
 				prompt: `I am a highly creative writer given the title of a story and a genre that you like, I shall generate a long form story with a named character. \n\n\n \nTitle: ${inputPassage} Genre: ${inputGenre} \n\n\n\n`,
 				temperature: 1,
@@ -43,6 +50,7 @@ export default function StoryGenerator() {
 
 			console.log(response.data.choices[0].text);
 			setResponse(response.data.choices[0].text);
+			loader!.style.display = 'none';
 		};
 
 		const button: HTMLButtonElement = event.currentTarget;
@@ -149,6 +157,9 @@ const wrapperRef = useCallback(
 			<button className='btn' type='submit' onClick={retrieveQuill}>
 				Publish
 			</button>
+			<div id="loader-container">
+        <img src= "https://cdn.dribbble.com/users/149180/screenshots/3208433/media/69be039cf606f6fe7ad8d1975306814e.gif"/>
+				</div>
 		</div>
 	);
 }
@@ -156,3 +167,4 @@ const wrapperRef = useCallback(
 function _req(_req: any, res: any) {
 	throw new Error('Function not implemented.');
 }
+

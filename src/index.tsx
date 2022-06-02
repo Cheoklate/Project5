@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 // Components
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
+import Carousel from './components/Dashboard/Carousel';
 
 const Homepage = lazy(() => import('./components/Blog/Blog'));
 const SignUpPage = lazy(() => import('./components/SignUp'));
