@@ -200,3 +200,15 @@ body {
   overflow-y: scroll;
 }
 
+.ql-container {
+  overflow-x:auto;
+  height: relative
+}
+
+.ql-container.ql-snow {
+    height: auto;
+}
+.ql-editor {
+    height: 350px;
+    overflow-y: scroll;
+}

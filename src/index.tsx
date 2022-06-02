@@ -12,6 +12,10 @@ const SignUpPage = lazy(() => import('./components/SignUp'));
 const SignInPage = lazy(() => import('./components/SignIn'));
 const Dashboard = lazy(() => import('./components/Dashboard/Dashboard'));
 
+const Chatroom = lazy(() => import('./components/Dashboard/SetNameChat'));
+const StoryGenerator = lazy(() => import('./components/Dashboard/StoryGeneration'));
+
+
 const rootElement = document.createElement('div');
 
 document.body.appendChild(rootElement);

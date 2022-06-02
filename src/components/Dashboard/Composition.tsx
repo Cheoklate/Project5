@@ -72,12 +72,12 @@ export default function Composition() {
 
 			wrapper.innerHTML = '';
 			const editor = document.createElement('div');
-			editor.setAttribute('id','scrollme')
+			editor.setAttribute('class','scrollme')
 			wrapper.append(editor);
 			const options = {	
 				placeholder: 'Compose an epic...',
 				theme: 'snow',
-				scrollingContainer: "#scrollme"
+				scrollingContainer: ".scrollme"
 			};
 			const q = new Quill(editor, options);
 			const skeleton = sessionStorage.getItem('Story'!);
@@ -92,5 +92,5 @@ export default function Composition() {
 		[]
 	);
 
-	return <div id='container' ref={wrapperRef}></div>;
+	return <div className='quillcontainer' ref={wrapperRef}></div>;
 }

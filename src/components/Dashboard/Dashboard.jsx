@@ -174,7 +174,7 @@ function DashboardContent() {
 									{selectedComponent === '1' && <Composition />}
 								</Paper>
 								<Button onClick={() => setSelectedComponent('1')}>
-									Collborate
+									Collaborate
 								</Button>
 							</Grid>
 							{/* Chat function */}

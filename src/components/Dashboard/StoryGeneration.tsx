@@ -4,7 +4,10 @@ import 'regenerator-runtime/runtime';
 import Quill from 'quill';
 import 'quill/dist/quill.snow.css';
 import axios from 'axios';
-import { Link, useNavigate } from 'react-router-dom';
+
+import { Link, useNavigate } from "react-router-dom";
+import './Storygen.css' ;
+
 
 // import dotenv from 'dotenv';
 // dotenv.config();
@@ -15,14 +18,15 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 // Create program component that takes in input and returns generated story
-let quill: Quill;
-let editor;
+
+
 
 export default function StoryGenerator() {
 	const [inputPassage, setInput] = useState('');
 	const [apiResponse, setResponse] = useState('');
 	const [inputGenre, setGenre] = useState('');
 	const [clickedButton, setClickedButton] = useState('');
+	const [quill, setQuill] = useState<any>();
 
 	const buttonHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
 		event.preventDefault();
@@ -56,7 +60,7 @@ export default function StoryGenerator() {
 		setGenre(newGenre);
 	};
 
-	const wrapperRef = useCallback(
+const wrapperRef = useCallback(
 		(
 			wrapper: {
 				innerHTML: string;
@@ -65,16 +69,22 @@ export default function StoryGenerator() {
 		) => {
 			if (wrapper == null) return;
 			wrapper.innerHTML = '';
-			editor = document.createElement('div');
+			const editor = document.createElement('div');
+			editor.setAttribute('class','scrollme')
 			wrapper.append(editor);
-			quill = new Quill(editor, {
+			const options = {	
+				placeholder: 'Compose an epic...',
 				theme: 'snow',
-				placeholder: 'Generate a story...',
-			});
-			quill.insertText(0, apiResponse);
+				scrollingContainer: ".scrollme"
+			};
+			const q = new Quill(editor, options);
+			q.insertText(0, apiResponse);
+			setQuill(q)
 		},
+	
 		[apiResponse]
 	);
+
 
 	const retrieveQuill = () => {
 		var text = quill.getText(0);
@@ -99,7 +109,7 @@ export default function StoryGenerator() {
 
 	return (
 		<div>
-			<span className='mb-3'>
+			
 				<span>
 					<label className='form-label'>Enter story title here:</label>
 					<input
@@ -130,14 +140,12 @@ export default function StoryGenerator() {
 					Stories can be generated with a statement i.e "There was a wandering
 					adventurer..."
 				</li>
-			</span>
-			<br />
-			<br />
+			
 			<button className='btn' type='submit' onClick={buttonHandler}>
 				Submit prompt
 			</button>
 
-			<span ref={wrapperRef}>{''}</span>
+			<span className='quillcontainer' ref={wrapperRef}></span>
 			<button className='btn' type='submit' onClick={retrieveQuill}>
 				Publish
 			</button>
