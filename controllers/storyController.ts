@@ -23,7 +23,16 @@ const StoryController = {
   catch (err) {
 			return res.status(500).json({ message: 'Internal Server Error' });
 		}
-  }
+  },
+  getHistory: async (req: Request, res: Response) => {
+    try{
+      const history = await Story.find({})
+      console.log(history)
+      return res.status(200).json(history);
+    }
+ catch (err) {
+			return res.status(500).json({ message: 'Internal Server Error' });
+		}}
 }
 
 export default StoryController;
