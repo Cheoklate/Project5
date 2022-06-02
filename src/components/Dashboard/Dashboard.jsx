@@ -24,7 +24,7 @@ import StoryGenerator from './StoryGeneration';
 import Chatroom from './SetNameChat';
 import Composition from './Composition';
 import Lobby from './Lobby';
-import Carousel from './Carousel'
+import Carousel from './Carousel';
 
 function Copyright(props) {
 	return (
@@ -36,7 +36,7 @@ function Copyright(props) {
 		>
 			{'Copyright © '}
 			<Link color='inherit' href='/'>
-				Main Page
+				Shtory Time
 			</Link>{' '}
 			{new Date().getFullYear()}
 			{'.'}
@@ -156,7 +156,9 @@ function DashboardContent() {
 							<Button onClick={() => setSelectedComponent('1')}>
 								Collaborate
 							</Button>
-							<Button onClick={() => setSelectedComponent('2')}>Carousel</Button>
+							<Button onClick={() => setSelectedComponent('2')}>
+								Carousel
+							</Button>
 							{/* <Button onClick={() => setSelectedChart('XIRR')}>XIRR</Button> */}
 						</ButtonGroup>
 						<Grid container spacing={3}>
